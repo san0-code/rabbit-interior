@@ -1,0 +1,318 @@
+/* 1. 基本設定 */
+body {
+  margin: 0;
+  /* Shippori Minchoを全体に。入っていない時のために serif を指定 */
+  font-family: 'Shippori Mincho', serif;
+}
+
+/* 2. ヘッダー全体（固定と影） */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. ヘッダーの中身（横並びの調整） */
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px; /* Figmaの数値 */
+}
+
+/* 4. ロゴ（ここがUXの肝） */
+.header__logo {
+  margin: 0;
+  font-size: 0; /* h1の余計な隙間を消す */
+}
+
+.header__logo a {
+  /* Noto Sans JPを読み込んでいない場合はsans-serifが適用されます */
+  font-family: sans-serif; 
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #4a4a4a;
+  text-decoration: none;
+}
+
+/* 5. ナビゲーション（メニュー） */
+.header__list {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.header__item a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.header__item a:hover {
+  opacity: 0.6;
+}
+
+/* 6. ヒーローセクション */
+.hero {
+  width: 100%;
+  height: 100vh; 
+  /* 背景色の設定を追加（画像がない時でも「ここにある」と分かります） */
+  background-color: #ccc; 
+ 
+  background-image: url('main-visual.jpg'); /* ←ここのファイル名を再確認！ */
+  background-size: cover;
+  background-position: center;
+  
+  /* 中身（文字）を中央に寄せる */
+  display: flex;
+  flex-direction: column; /* 文字を縦に並べる */
+  align-items: center;
+  justify-content: center;
+  
+  /* UXの配慮：ヘッダーの下に隠れないように */
+  margin-top: 0; 
+}
+
+/* 文字を縦に並べるためのコンテナ */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero__title {
+  font-size: 48px;
+  margin: 0;
+  line-height: 1.5;
+  text-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.hero__text {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* カートの文字だけ少し太く、色を変える */
+.header__cart a {
+  font-weight: bold;
+  color: #b8860b; /* 北欧デザインに合う落ち着いたゴールド */
+  border: 1px solid #b8860b; /* 枠で囲むとボタンっぽくなります */
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+
+.header__cart a:hover {
+  background-color: #b8860b;
+  color: #fff;
+}
+
+/* 商品画像のサイズを指定する */
+.product__item img {
+  width: 100%;       /* 親要素の幅いっぱいに広げる */
+  max-width: 400px;  /* でも最大で400pxまでにしてね */
+  height: auto;      /* 高さは自動で調整して、縦横比を保つ */
+}
+
+/* これを入れておくと、画像が親要素（枠）をはみ出さなくなります */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.concept {
+  padding: 100px 20px; /* 上下に100pxの広い余白をあける */
+  text-align: center;   /* 文字を真ん中に寄せて上品に */
+}
+
+.concept__title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.1em; /* 文字の間隔を少しあけると高級感が出ます */
+}
+.search-area {
+    padding: 20px 5%;
+    background-color: #fff;
+}
+
+.search-area__inner {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* 角を丸く */
+    padding: 5px 15px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 5px;
+}
+
+.search-button {
+    background-color: #bcc9be; /* Figmaに近いセージグリーン */
+    color: #444;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* 商品アイテム全体の整頓 */
+.product__item {
+  text-align: center; /* 中身を真ん中に寄せる */
+  margin-bottom: 40px;
+}
+
+/* 商品名のスタイル */
+.product__name {
+  margin-top: 15px;
+  font-size: 1.1rem;
+}
+
+/* 価格のスタイル */
+.product__price {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+/* VIEW MOREボタン本体 */
+.view-more {
+  display: inline-block;     /* 幅と高さを指定できるようにする */
+  text-decoration: none;     /* 下線を消す */
+  background-color: #bcc9be; /* Figmaのくすんだ緑（セージグリーン） */
+  color: #fff;               /* 文字の色を白にする */
+  padding: 8px 30px;         /* ボタンの上下左右の余白 */
+  border-radius: 25px;       /* 角を丸くしてカプセル型に */
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;     /* 文字の間隔を少し広げておしゃれに */
+  transition: opacity 0.3s;  /* ふわっと変化させる */
+}
+
+/* マウスを乗せたとき（ホバー）の設定 */
+.view-more:hover {
+  opacity: 0.8;              /* 少し薄くして「押せる感」を出す */
+}
+
+/* 商品を包んでいる「親」の箱の設定 */
+.products__inner {
+  display: grid;               /* グリッドレイアウトを使います */
+  grid-template-columns: repeat(3, 1fr); /* 「3つ」を「同じ幅」で並べる */
+  gap: 30px;                   /* 商品同士の間隔を30pxあける */
+  max-width: 1000px;           /* 全体の最大幅を制限して広がりすぎを防ぐ */
+  margin: 0 auto;              /* 全体を真ん中に寄せる */
+  padding: 50px 20px;          /* 上下に余白を作る */
+}
+
+/* 画像が大きすぎて突き抜けないようにする */
+.product__item img {
+  width: 100%;
+  height: 250px;               /* 高さを揃える（Figmaの形に合わせる） */
+  object-fit: cover;           /* 画像を切り抜いて枠にピッタリ収める */
+  border-radius: 15px;         /* Figmaの通り、角を丸くする */
+  margin-bottom: 15px;
+}.products__inner {
+  display: flex;         /* GridがダメならFlexboxで！ */
+  justify-content: space-between; /* 両端に寄せて間隔をあける */
+  gap: 20px;            /* 商品同士のスキマ */
+  max-width: 1100px;
+  margin: 0 auto;       /* 真ん中寄せ */
+  padding: 50px 20px;
+}
+
+.product__item {
+  flex: 1;              /* 3つの幅を均等にする */
+  text-align: center;
+}
+
+.footer {
+    background-color: #4a4a4a; /* 濃いグレーで落ち着いた印象に */
+    color: #fff;
+    padding: 60px 20px 30px;
+    text-align: center;
+}
+
+.footer__logo {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.footer__nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.footer__nav a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.footer__nav a:hover {
+    color: #fff;
+}
+
+.copyright {
+    font-size: 0.7rem;
+    color: #888;
+}
+
+.hero {
+    /* 画像のパスが合っているか再確認してくださいね！ */
+    background-image: url('Gemini_Generated_Image_d1y76qd1y76qd1y7.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* 画面の高さの80%分を表示させる */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* 画像の上に薄い影を敷いて、文字をさらに読みやすくします */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* 0.2は影の濃さです */
+}
+
+.hero__content {
+    position: relative; /* 影の上に文字を出すため */
+    text-align: center;
+    z-index: 1;
+}
+
+.hero__title {
+    color: #f0f0f0;
+    font-size: 2.5rem;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.highlight {
+    display: block;      /* 改行させる */
+    color: #ffffff;      /* ここだけ真っ白！ */
+    font-size: 1.2rem;   /* 少しサイズを調整 */
+    margin-top: 20px;
+    font-weight: bold;
+}
