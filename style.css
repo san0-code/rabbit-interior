@@ -310,39 +310,41 @@ img {
     font-weight: bold;
 }
 
+/* --- スマホ用の調整 --- */
 @media screen and (max-width: 768px) {
-  /* 1. ヘッダーを「折り返し許可」にする */
+  /* 1. 全体の横揺れを物理的に禁止 */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* 2. ヘッダーを縦に積んで、絶対に横幅を超えないようにする */
   .header__inner {
-    padding: 10px 15px;
-    flex-wrap: wrap;       /* ← これで入りきらない時に自動で2行になります */
-    justify-content: center; /* 中央寄せで綺麗に見せる */
-    gap: 10px;
+    padding: 15px 10px !important;
+    flex-direction: column !important; /* 縦に並べる */
+    gap: 12px !important;
   }
 
-  /* 2. ロゴを中央に、幅を100%にして1行目を占領させる */
-  .header__logo {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 5px;
-  }
-
+  /* 3. ロゴのサイズ調整 */
   .header__logo a {
-    font-size: 20px;
+    font-size: 20px !important;
   }
 
-  /* 3. ナビとカートを2行目に並べる */
+  /* 4. 【重要】ナビゲーションを1列に収める */
   .header__list {
-    gap: 15px;
-    justify-content: center;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important; /* 32pxから12pxに大幅削減！ */
   }
 
+  /* 5. 【決定打】カートとはみ出しの最終調整 */
   .header__item a, 
   .header__cart a {
-    font-size: 12px;
-    padding: 5px 10px;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    white-space: nowrap; /* 改行させない */
   }
 
-  /* 4. 商品リストを確実に縦並びに */
+  /* 6. 商品リストを縦並びに */
   .products__inner {
     flex-direction: column !important;
     align-items: center !important;
@@ -353,6 +355,5 @@ img {
     width: 100% !important;
     max-width: 300px;
     margin-bottom: 30px;
-    flex: none !important;
   }
 }
