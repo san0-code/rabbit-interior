@@ -363,4 +363,28 @@ img {
   .search-button {
     width: 100%; /* ボタンも押しやすく大きく */
   }
+
+  /* --- カートとはみ出しの最終調整 --- */
+  .header__inner {
+    padding: 15px 10px; /* 左右の余白をさらに削る */
+    justify-content: space-around; /* 要素を均等に配置 */
+  }
+
+  .header__logo a {
+    font-size: 18px; /* ロゴをもう一回り小さく */
+  }
+
+  .header__list {
+    gap: 8px; /* メニュー同士の隙間を最小限に */
+  }
+
+  .header__item a {
+    font-size: 11px; /* 文字を少しだけ小さく */
+  }
+
+  .header__cart a {
+    padding: 4px 8px; /* カートボタンの余白を削ってスリムに */
+    font-size: 11px;
+    white-space: nowrap; /* ボタン内で改行させない */
+  }
 }
