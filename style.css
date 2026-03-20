@@ -310,81 +310,49 @@ img {
     font-weight: bold;
 }
 
-/* --- スマホ用の調整 (画面幅が768px以下の時だけ適用) --- */
 @media screen and (max-width: 768px) {
-
-  /* 1. ヘッダーの余白を狭くして、ロゴとメニューを収める */
+  /* 1. ヘッダーを「折り返し許可」にする */
   .header__inner {
-    padding: 15px 20px; 
+    padding: 10px 15px;
+    flex-wrap: wrap;       /* ← これで入りきらない時に自動で2行になります */
+    justify-content: center; /* 中央寄せで綺麗に見せる */
+    gap: 10px;
+  }
+
+  /* 2. ロゴを中央に、幅を100%にして1行目を占領させる */
+  .header__logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
   }
 
   .header__logo a {
-    font-size: 20px; /* ロゴを少し小さく */
+    font-size: 20px;
   }
 
+  /* 3. ナビとカートを2行目に並べる */
   .header__list {
-    gap: 15px; /* メニューの間隔を狭く */
+    gap: 15px;
+    justify-content: center;
   }
 
-  .header__item a {
-    font-size: 12px; /* メニューの文字を小さく */
+  .header__item a, 
+  .header__cart a {
+    font-size: 12px;
+    padding: 5px 10px;
   }
 
-  /* 2. ヒーローセクションの文字サイズ調整 */
-  .hero__title {
-    font-size: 1.8rem; /* タイトルをスマホサイズに */
-    padding: 0 20px;   /* 画面端に文字がくっつかないように */
-  }
-
-  /* 3. 【最重要】商品を縦に並べる（はみ出し防止） */
+  /* 4. 商品リストを確実に縦並びに */
   .products__inner {
-    flex-direction: column; /* 横並びから縦並びに変更！ */
-    align-items: center;    /* 真ん中に寄せる */
-    padding: 30px 20px;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 20px !important;
   }
 
   .product__item {
-    width: 100%;            /* 1つの商品を横幅いっぱいに */
-    max-width: 320px;       /* でも広がりすぎないように制限 */
-    flex: none;             /* PC版のflex設定をリセット */
-  }
-
-  /* 4. 検索エリアの調整 */
-  .search-area__inner {
-    flex-direction: column; /* 検索バーとボタンを縦に並べる */
-    width: 100%;
-  }
-
-  .search-bar {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .search-button {
-    width: 100%; /* ボタンも押しやすく大きく */
-  }
-
-  /* --- カートとはみ出しの最終調整 --- */
-  .header__inner {
-    padding: 15px 10px; /* 左右の余白をさらに削る */
-    justify-content: space-around; /* 要素を均等に配置 */
-  }
-
-  .header__logo a {
-    font-size: 18px; /* ロゴをもう一回り小さく */
-  }
-
-  .header__list {
-    gap: 8px; /* メニュー同士の隙間を最小限に */
-  }
-
-  .header__item a {
-    font-size: 11px; /* 文字を少しだけ小さく */
-  }
-
-  .header__cart a {
-    padding: 4px 8px; /* カートボタンの余白を削ってスリムに */
-    font-size: 11px;
-    white-space: nowrap; /* ボタン内で改行させない */
+    width: 100% !important;
+    max-width: 300px;
+    margin-bottom: 30px;
+    flex: none !important;
   }
 }
