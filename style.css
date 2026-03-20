@@ -210,12 +210,12 @@ img {
 
 /* 商品を包んでいる「親」の箱の設定 */
 .products__inner {
-  display: grid;               /* グリッドレイアウトを使います */
-  grid-template-columns: repeat(3, 1fr); /* 「3つ」を「同じ幅」で並べる */
-  gap: 30px;                   /* 商品同士の間隔を30pxあける */
-  max-width: 1000px;           /* 全体の最大幅を制限して広がりすぎを防ぐ */
-  margin: 0 auto;              /* 全体を真ん中に寄せる */
-  padding: 50px 20px;          /* 上下に余白を作る */
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px;
 }
 
 /* 画像が大きすぎて突き抜けないようにする */
@@ -225,13 +225,6 @@ img {
   object-fit: cover;           /* 画像を切り抜いて枠にピッタリ収める */
   border-radius: 15px;         /* Figmaの通り、角を丸くする */
   margin-bottom: 15px;
-}.products__inner {
-  display: flex;         /* GridがダメならFlexboxで！ */
-  justify-content: space-between; /* 両端に寄せて間隔をあける */
-  gap: 20px;            /* 商品同士のスキマ */
-  max-width: 1100px;
-  margin: 0 auto;       /* 真ん中寄せ */
-  padding: 50px 20px;
 }
 
 .product__item {
